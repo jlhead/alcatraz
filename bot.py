@@ -1,3 +1,4 @@
+import os
 import discord
 from discord.ext import commands
 
@@ -18,12 +19,23 @@ class AutoPingDefcoord(commands.Cog):
         if not guild:
             return
 
-        # Get the role named "Defcoord"
         role = discord.utils.get(guild.roles, name="Defcoord")
         if role:
-            await message.channel.send(f"{role.mention}", silent=True)
+            await message.channel.send(f"{role.mention}")
 
-# Setup function for loading the cog
-async def setup(bot):
-    await bot.add_cog(AutoPingDefcoord(bot))
+intents = discord.Intents.default()
+intents.message_content = True  # Needed to read message content in on_message
 
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f"Logged in as {bot.user}!")
+
+async def main():
+    async with bot:
+        await bot.add_cog(AutoPingDefcoord(bot))
+        await bot.start(os.getenv("DISCORD_BOT_TOKEN"))
+
+import asyncio
+asyncio.run(main())
