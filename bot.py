@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv  # Add this import
+
+load_dotenv()  # Add this line to load .env variables
+
 import discord
 from discord.ext import commands
 
