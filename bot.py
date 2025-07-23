@@ -39,6 +39,7 @@ async def on_ready():
 async def main():
     async with bot:
         await bot.add_cog(AutoPingDefcoord(bot))
+        print("Token:", os.getenv("DISCORD_BOT_TOKEN"))
         await bot.start(os.getenv("DISCORD_BOT_TOKEN"))
 
 import asyncio
