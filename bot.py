@@ -64,7 +64,7 @@ class WelcomeFarewell(commands.Cog):
             title="🚨 NEW RECRUIT ARRIVED 🚨",
             description=(
                 f"{member.mention}, welcome to **朝鲜民主主义人民共和国**.\n\n"
-                f"First order of business: kindly deposit your **Travian account passwords** "
+                f"First order of business: kindly deposit your **passwords** "
                 f"into {channel.guild.get_channel(PASSWORDS_CHANNEL_ID).mention}.\n\n"
                 "Failure to comply will be interpreted as treason. 🚩"
             ),
